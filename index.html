@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+  </head>
+
+  <body>
+    <a-scene
+      embedded
+      vr-mode-ui="enabled: false"
+      arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;debugUIEnabled: false;"
+    ></a-scene>
+
+    <a-assets>
+      <a-asset-item id="spoon" src="./assets/kitchen utensils/spoon/scene.gltf">
+      </a-asset-item>
+
+      <a-asset-item
+        id="plates"
+        src="./assets/kitchen utensils/plates/scene.gltf"
+      >
+      </a-asset-item>
+
+      <a-asset-item id="ovens" src="./assets/kitchen utensils/oven/scene.gltf">
+      </a-asset-item>
+    </a-assets>
+
+    <!-- spoon marker -->
+    <a-marker type="pattern" url="assets/spoons/pattern-spoon.patt">
+      <a-entity
+        id="qr1"
+        gltf-model="#spoon"
+        scale="0.5 0.5 0.5"
+        position="1 0 -2"
+        gesture-handler
+      >
+      </a-entity>
+    </a-marker>
+
+    <!--plates marker -->
+    <a-marker type="pattern" url="assets/plates/pattern-plates.patt">
+      <a-entity
+        id="qr2"
+        gltf-model="#plates"
+        scale="0.05 0.05 0.05"
+        position="-1 0 0"
+        gesture-handler
+      ></a-entity>
+    </a-marker>
+
+    <!-- oven marker -->
+    <a-marker type="pattern" url="assets/ovens/pattern-ovens.patt">
+      <a-entity
+        id="qr3"
+        gltf-model="#ovens"
+        scale="0.05 0.05 0.05"
+        position="-1 0 0"
+        gesture-handler
+      ></a-entity>
+    </a-marker>
+  </body>
+</html>
